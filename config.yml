@@ -1,0 +1,38 @@
+crawler:
+  web_type: cwl_official
+  url: http://www.cwl.gov.cn/cwl_admin/front/cwlkj/search/kjxx/findDrawNotice
+  header:
+    Referer: http://www.cwl.gov.cn/ygkj/kjgg/
+    User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) \
+                 AppleWebKit/537.36 (KHTML, like Gecko) \
+                 Chrome/99.0.4844.74 \
+                 Safari/537.36 \
+                 Edg/99.0.1150.55"
+    Cookie: "HMF_CI=f3f9b55d09cc19469d64d5261350963274db926f44a8cd39d603d555018e8b7964; 21_vq=1"
+poster_drawer:
+  border_width: 20  # 边框宽度
+  border_color: [219, 38, 29] # RGB
+  background_img:
+    absolute_path: C:/Users/1/Documents/PycharmProjects/UnionLottoPoster/assets
+    top:
+      img: title_bg.png
+      date_position: [75, 430] # 日期位置(左下角 [x, y])
+    bottom:
+      img: qrcode_bg.png
+    ssq:  # 双色球
+      img: ssq_bg.png
+      stage_position: [690, 113]  # 期号位置(左下角 [x, y])
+      code_position: [280, 250, 141]  # 开奖号码起始位置(左下角 [x, y, 间隔])
+    fc3d: # 福彩3D
+      img: fc3d_bg.png
+      stage_position: [690, 126]  # 期号位置(左下角 [x, y])
+      code_position: [308, 259, 141]  # 开奖号码起始位置(左下角 [x, y, 间隔])
+    kl8:  # 快乐8
+      img: kl8_bg.png
+      stage_position: [690, 126]  # 期号位置(左下角 [x, y])
+      code_position: [285, 259, 140, 158] # 开奖号码起始位置(左下角 [x, y, x间隔, y间隔])
+    qlc:  # 七乐彩
+      img: qlc_bg.png
+      stage_position: [690, 115]  # 期号位置(左下角 [x, y])
+      red_code_position: [280, 253, 141]  # 红球位置(左下角 [x, y, 间隔])
+      blue_code_position: [280, 408]  # 蓝球位置(左下角 [x, y])
