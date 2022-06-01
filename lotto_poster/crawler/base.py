@@ -30,5 +30,6 @@ class LottoCrawlerBase(abc.ABC):
         pass
 
     @abc.abstractmethod
-    def collect_recent_infos(self, stages: int = 30):
+    def collect_recent_infos(self, stages: int = 30,
+                             lotto_type: List[str] = ('ssq', 'kl8', 'qlc', 'fc3d')) -> List[Any]:
         pass
