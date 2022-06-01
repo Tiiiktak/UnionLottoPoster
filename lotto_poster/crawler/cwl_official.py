@@ -1,7 +1,7 @@
 from .base import LottoCrawlerBase
 from lotto_poster.utils import CrawlerException, SSQWinningInfo, KL8WinningInfo, FC3DWinningInfo, QLCWinningInfo
 from random import randint
-from typing import Optional, List, Union
+from typing import Optional, List, Union, Any
 import requests
 import json
 
@@ -30,10 +30,10 @@ class CWLOfficialCrawler(LottoCrawlerBase):
         result = self.__get_url_winning_infos(qlc_url)[0]
         return self.__format_info(result, "qlc")
 
-    def collect_recent_infos(self, stages: int = 30):
-        types = ['ssq', 'kl8', 'fc3d', 'qlc']
+    def collect_recent_infos(self, stages: int = 30,
+                             lotto_type: List[str] = ('ssq', 'kl8', 'fc3d', 'qlc')) -> List[Any]:
         results = []
-        for t in types:
+        for t in lotto_type:
             name = t if t != 'fc3d' else '3d'
             target_url = f'{self.base_url}?name={name}&issueCount={stages}'
             winning_infos = self.__get_url_winning_infos(target_url)
@@ -62,12 +62,13 @@ class CWLOfficialCrawler(LottoCrawlerBase):
             winning_dict['poolmoney'] = 0
         if name == 'ssq':
             red_balls = list(map(int, winning_dict['red'].split(',')))
+            blue_ball = int(winning_dict['blue']) if isinstance(winning_dict['blue'], str) else winning_dict['blue']
             return SSQWinningInfo(
                 stage=winning_dict['code'],
                 date=winning_dict['date'].split('(')[0],
                 week=winning_dict['week'],
                 red_code=red_balls,
-                blue_code=winning_dict['blue'],
+                blue_code=blue_ball,
                 pool_money=winning_dict['poolmoney'],
                 first_prize_content=winning_dict['content'],
                 prize_grades=winning_dict['prizegrades'])
@@ -90,12 +91,13 @@ class CWLOfficialCrawler(LottoCrawlerBase):
                 red_code=red_balls)
         elif name == 'qlc':
             red_balls = list(map(int, winning_dict['red'].split(',')))
+            blue_ball = int(winning_dict['blue']) if isinstance(winning_dict['blue'], str) else winning_dict['blue']
             return QLCWinningInfo(
                 stage=winning_dict['code'],
                 date=winning_dict['date'].split('(')[0],
                 week=winning_dict['week'],
                 red_code=red_balls,
-                blue_code=winning_dict['blue'],
+                blue_code=blue_ball,
                 pool_money=winning_dict['poolmoney'],
                 first_prize_content=winning_dict['content'],
                 prize_grades=winning_dict['prizegrades'])
