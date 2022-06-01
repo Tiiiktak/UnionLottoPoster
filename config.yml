@@ -1,3 +1,6 @@
+app:
+  host: localhost
+  port: 8888
 crawler:
   web_type: cwl_official
   url: http://www.cwl.gov.cn/cwl_admin/front/cwlkj/search/kjxx/findDrawNotice

@@ -21,6 +21,8 @@ print('Config loaded: {}'.format(config_dict))
 
 config = DefaultMunch.fromDict(config_dict)
 
+AppConfig = config.app
+
 CrawlerConfig = config.crawler
 
 PosterDrawerConfig = config.poster_drawer
