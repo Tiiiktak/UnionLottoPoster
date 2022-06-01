@@ -1,4 +1,4 @@
-# UnionLottoPoster 彩票海报绘制
+# UnionLottoPoster 福彩开奖海报
 
 - 爬取福彩彩票中奖信息(双色球、快乐8、福彩3D、七乐彩)
 - 使用模板绘制彩票海报
@@ -28,7 +28,7 @@ UnionLottoPoster
   │  │  ├─ cfg.py   // 配置文件
   │  │  ├─ code_info_format.py // 中奖信息格式
   │  │  └─ exception.py        // 异常
-  │  └─ app        // fastapi backend
+  │  └─ app        // fastapi backend #TODO
   ├─ demo_gradio
   │  └─ demo.py    
   └─ doc
