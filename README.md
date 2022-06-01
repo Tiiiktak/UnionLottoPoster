@@ -7,7 +7,7 @@
 
 ## Demo
 
-使用 Gradio 简单实现: `UnionLottoPoster/demo_gradio`
+使用 Gradio 简单实现: `./demo_gradio`
 
 ![gradio demo](doc/gradio_demo.png)
 
